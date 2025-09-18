@@ -8,7 +8,7 @@ describe Game do
     Review.create(score: 8, comment: "A classic", game_id: game.id, user_id: user1.id)
     Review.create(score: 10, comment: "Wow what a game", game_id: game.id, user_id: user2.id)
   end
-  
+
   it "has the correct columns in the games table" do
     expect(game).to have_attributes(title: "Mario Kart", platform: "Switch", genre: "Racing", price: 60)
   end
@@ -32,5 +32,5 @@ describe Game do
       game.reviews << Review.new(score: 3, comment: "terrible")
     end.to change(Review, :count).by(1)
   end
-  
+
 end

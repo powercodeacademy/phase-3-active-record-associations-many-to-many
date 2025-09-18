@@ -6,7 +6,7 @@ describe Review do
     user = User.create(name: "Liza")
     Review.create(score: 8, comment: "A classic", game_id: game.id, user_id: user.id)
   end
-  
+
   it "has the correct columns in the reviews table" do
     expect(review).to have_attributes(score: 8, comment: "A classic", game_id: Game.first.id, user_id: User.first.id)
   end
@@ -26,7 +26,7 @@ describe Review do
   it "can create an associated game using the game instance" do
     game = Game.first
     review = Review.create(score: 10, comment: "10 stars", game: game)
-    
+
     expect(review.game).to eq(game)
   end
 
@@ -37,5 +37,5 @@ describe Review do
       review.save
     end.to change(Game, :count).by(1)
   end
- 
+
 end
