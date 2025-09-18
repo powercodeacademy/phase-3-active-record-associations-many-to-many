@@ -46,7 +46,7 @@ To start, let's add the code we'll need for the `User` model as well. We'll star
 by generating the migration:
 
 ```console
-$ bundle exec rake db:create_migration NAME=create_users
+bin/rake db:create_migration NAME=create_users
 ```
 
 Let's create the `users` table with a `name` column:
@@ -69,7 +69,7 @@ this relationship. Let's go ahead and write a migration to update the `reviews`
 table:
 
 ```console
-$ bundle exec rake db:create_migration NAME=add_user_id_to_reviews
+bin/rake db:create_migration NAME=add_user_id_to_reviews
 ```
 
 We'll use the `add_column` method to update the `reviews` table and add a
@@ -87,13 +87,13 @@ With that, our migrations are good to go! Run the new migrations to update
 the database and schema:
 
 ```console
-$ bundle exec rake db:migrate
+bin/rake db:migrate
 ```
 
 Run the seed file as well to populate the `games` and `reviews` tables:
 
 ```console
-$ bundle exec rake db:seed
+bin/rake db:seed
 ```
 
 ## Setting Up the Join Class
@@ -121,7 +121,7 @@ end
 ```
 
 Now, we can create a new `Review` instance and associate it with a `User`
-**and** a `Game`. Run `rake console` and try it out:
+**and** a `Game`. Run bin/rake console` and try it out:
 
 ```rb
 # Get a game instance
